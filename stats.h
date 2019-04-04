@@ -80,6 +80,7 @@ public:
 
 	vector<int> addHist(vector<int> hist1, vector<int> hist2);
 	vector<int> subHist(vector<int> hist1, vector<int> hist2);
+	double radToDeg(double x, double y);
 };
 
 #endif
