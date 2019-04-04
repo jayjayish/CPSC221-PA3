@@ -15,6 +15,7 @@ stats::stats(PNG & im){
 	vector<vector<int>> colHist;
 
 	//Just this column's histogram
+	vector<int> cleanHist(36, 0);
 	vector<int> pixHist(36, 0);
 	vector<int> placedHist;
 
@@ -47,8 +48,8 @@ stats::stats(PNG & im){
 
 	sumHueX.push_back(colSumHueX);
 	sumHueY.push_back(colSumHueY);
-	sumHueSat.push_back(colSumSat);
-	sumHueLum.push_back(colSumLum);
+	sumSat.push_back(colSumSat);
+	sumLum.push_back(colSumLum);
 	hist.push_back(colHist);
 
 
@@ -66,7 +67,7 @@ stats::stats(PNG & im){
 		colHist.clear();
 
 		pixHist.clear();
-		pixHist(36, 0);
+		pixHist = cleanHist;
 
 
 		for (int j = 0; j < height; j++){
@@ -92,8 +93,8 @@ stats::stats(PNG & im){
 
 		sumHueX.push_back(colSumHueX);
 		sumHueY.push_back(colSumHueY);
-		sumHueSat.push_back(colSumSat);
-		sumHueLum.push_back(colSumLum);
+		sumSat.push_back(colSumSat);
+		sumLum.push_back(colSumLum);
 		hist.push_back(colHist);
 
 	}
@@ -109,7 +110,7 @@ long stats::rectArea(pair<int,int> ul, pair<int,int> lr){
 
 HSLAPixel stats::getAvg(pair<int,int> ul, pair<int,int> lr){
 	HSLAPixel returnPix = HSLAPixel();
-	numPix = rectArea(ul, lr);
+	long numPix = rectArea(ul, lr);
 	double avgY,  avgX;
 
 	int x1 = ul.first;
