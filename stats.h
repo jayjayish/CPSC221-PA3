@@ -77,6 +77,9 @@ public:
      * pixels in bin i, and the sum is taken over all the bins. 
      * bins holding no pixels should not be included in the sum. */
     double entropy(vector<int> & d ,int area);
+
+	vector<int> addHist(vector<int> hist1, vector<int> hist2);
+	vector<int> subHist(vector<int> hist1, vector<int> hist2);
 };
 
 #endif
