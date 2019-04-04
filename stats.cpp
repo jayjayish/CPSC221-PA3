@@ -120,26 +120,26 @@ HSLAPixel stats::getAvg(pair<int,int> ul, pair<int,int> lr){
 
 
 	if (x1 == 0 && y1 == 0){
-		avgY = sumHueY[x2][y2] / numPix;
-		avgX = sumHueX[x2][y2] / numPix;
+		avgY = sumHueY[x2][y2];
+		avgX = sumHueX[x2][y2];
 		returnPix.h = atan(avgY/avgX);
-		returnPix.l = sumLum[x2][y2] / numPix;
-		returnPix.s = sumSat[x2][y2] / numPix;
+		returnPix.l = sumLum[x2][y2]/ numPix;
+		returnPix.s = sumSat[x2][y2]/ numPix;
 	} else if (x1 == 0){
-		avgY = (sumHueY[x2][y2] - sumHueY[x2][y1 - 1]) / numPix;
-		avgX = (sumHueX[x2][y2] - sumHueX[x2][y1 - 1]) / numPix;
+		avgY = (sumHueY[x2][y2] - sumHueY[x2][y1 - 1]);
+		avgX = (sumHueX[x2][y2] - sumHueX[x2][y1 - 1]);
 		returnPix.h = atan(avgY/avgX);
-		returnPix.l = (sumLum[x2][y2] - sumLum[x2][y1 - 1]) / numPix;
-		returnPix.s = (sumSat[x2][y2] - sumSat[x2][y1 - 1]) / numPix;
+		returnPix.l = (sumLum[x2][y2] - sumLum[x2][y1 - 1])/ numPix;
+		returnPix.s = (sumSat[x2][y2] - sumSat[x2][y1 - 1])/ numPix;
 	} else if (y1 == 0){
-		avgY = (sumHueY[x2][y2] - sumHueY[x1 - 1][y2]) / numPix;
-		avgX = (sumHueX[x2][y2] - sumHueX[x1 - 1][y2]) / numPix;
+		avgY = (sumHueY[x2][y2] - sumHueY[x1 - 1][y2]);
+		avgX = (sumHueX[x2][y2] - sumHueX[x1 - 1][y2]);
 		returnPix.h = atan(avgY/avgX);
-		returnPix.l = (sumLum[x2][y2] - sumLum[x1 - 1][y2]) / numPix;
-		returnPix.s = (sumSat[x2][y2] - sumSat[x1 - 1][y2]) / numPix;
+		returnPix.l = (sumLum[x2][y2] - sumLum[x1 - 1][y2])/ numPix;
+		returnPix.s = (sumSat[x2][y2] - sumSat[x1 - 1][y2])/ numPix;
 	} else{
-		avgY = (sumHueY[x2][y2] - sumHueY[x1 - 1][y2] - sumHueY[x2][y1 - 1] + sumHueY[x1 - 1][y1 - 1]) / numPix;
-		avgX = (sumHueX[x2][y2] - sumHueX[x1 - 1][y2] - sumHueX[x2][y1 - 1] + sumHueX[x1 - 1][y1 - 1]) / numPix;
+		avgY = (sumHueY[x2][y2] - sumHueY[x1 - 1][y2] - sumHueY[x2][y1 - 1] + sumHueY[x1 - 1][y1 - 1]);
+		avgX = (sumHueX[x2][y2] - sumHueX[x1 - 1][y2] - sumHueX[x2][y1 - 1] + sumHueX[x1 - 1][y1 - 1]);
 		returnPix.h = atan(avgY/avgX);
 		returnPix.l = (sumLum[x2][y2] - sumLum[x1 - 1][y2] - sumLum[x2][y1 - 1] + sumLum[x1 - 1][y1 - 1]) / numPix;
 		returnPix.s = (sumSat[x2][y2] - sumSat[x1 - 1][y2] - sumSat[x2][y1 - 1] + sumSat[x1 - 1][y1 - 1]) / numPix;
