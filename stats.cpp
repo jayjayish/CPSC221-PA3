@@ -225,7 +225,7 @@ double stats::radToDeg(double x, double y){
 	double deg = atan(y/x) * 180 / PI;
 
 	if (deg < 0){
-		deg = 360 + deg;
+		deg = 180 + deg;
 	}
 
 	return deg;
