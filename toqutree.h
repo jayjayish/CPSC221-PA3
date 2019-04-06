@@ -172,7 +172,6 @@ private:
    * You may want a recursive helper function for this one.
     */
    void clear(Node * &croot);
-   void clear(Node * Node);
    /**
    * Copies the parameter other toqutree into the current toqutree.
    * Does not free any memory. Called by copy constructor and op=.

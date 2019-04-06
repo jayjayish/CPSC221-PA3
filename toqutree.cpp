@@ -90,14 +90,6 @@ void toqutree::prune(Node* node, double tol){
 
 /* called by destructor and assignment operator*/
 void toqutree::clear(Node * & curr){
-	clear(curr->NW);
-	clear(curr->NE);
-	clear(curr->SE);
-	clear(curr->SW);
-	delete(curr);
-}
-
-void toqutree::clear(Node * curr){
 	if(curr != NULL){
 		clear(curr->NW);
 		clear(curr->NE);
@@ -109,6 +101,7 @@ void toqutree::clear(Node * curr){
 		return;
 	}
 }
+
 
 /* done */
 /* called by assignment operator and copy constructor */
