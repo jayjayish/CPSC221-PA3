@@ -224,6 +224,9 @@ vector<int> stats::subHist(vector<int> hist1, vector<int> hist2){
 double stats::radToDeg(double x, double y){
 	double deg = atan2(y, x) * 180 / PI;
 
+	if (deg < 0){
+		deg = 180 - (90 + deg);
+	}
 
 	return deg;
 
