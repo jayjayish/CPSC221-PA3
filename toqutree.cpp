@@ -41,9 +41,17 @@ toqutree::toqutree(PNG & imIn, int k){
 }
 
 int toqutree::size() {
-/* your code here */
+	return size(root);
 }
 
+int toqutree::size(const Node * node) {
+	if (node != NULL){
+		return 1 + size(node->NW) + size(node->NE) + size(node->SE) + size(node->SW);
+	}
+	else{
+		return 0;
+	}
+}
 
 toqutree::Node * toqutree::buildTree(PNG * im, int k) {
 
@@ -76,9 +84,30 @@ void toqutree::prune(double tol){
 
 }
 
+void toqutree::prune(Node* node, double tol){
+
+}
+
 /* called by destructor and assignment operator*/
 void toqutree::clear(Node * & curr){
-/* your code here */
+	clear(curr->NW);
+	clear(curr->NE);
+	clear(curr->SE);
+	clear(curr->SW);
+	delete(curr);
+}
+
+void toqutree::clear(Node * curr){
+	if(curr != NULL){
+		clear(curr->NW);
+		clear(curr->NE);
+		clear(curr->SE);
+		clear(curr->SW);
+		delete(curr);
+	}
+	else{
+		return;
+	}
 }
 
 /* done */
